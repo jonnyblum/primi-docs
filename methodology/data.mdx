@@ -1,0 +1,48 @@
+---
+title: Data
+description: Source platforms, data collection, and the filters applied before any data enters the index.
+---
+
+## Source platforms
+
+The Primi index for each company is calculated from bid-ask quotes collected across five eligible secondary market platforms:
+
+- **Forge**
+- **Hiive**
+- **Nasdaq Private Market**
+- **Augment**
+- **Caplight**
+
+These platforms are independent of each other and of Primi. No single platform can represent more than **40 percent** of the composite reference price. This cap ensures that the index reflects a genuine cross-platform consensus rather than activity on any single venue.
+
+## Data collection
+
+Quotes are collected every **15 minutes** throughout the trading day. For each platform and each listed company, the best bid and best ask are recorded and used to calculate a per-platform midpoint:
+
+```
+Midpoint_platform = (Best_Bid + Best_Ask) / 2
+```
+
+Midpoints from all eligible platforms are then averaged with equal weight to produce the composite reference price.
+
+## Staleness filter
+
+Any quote not updated within the trailing **30 days** is excluded from the composite calculation. Stale quotes do not represent current market conditions and would distort the reference price if included.
+
+## Sanity filter
+
+Any platform midpoint more than **30 percent** away from the most recent verified transaction price on that platform is excluded. Verified transactions — actual completed trades — serve as calibration anchors for quote data. A quote far outside the range of real transactions is treated as unreliable.
+
+## Anti-manipulation filter
+
+Any quote movement that would shift the composite reference price by more than **10 percent** in a single 15-minute interval is flagged and held for 48 hours. It is incorporated only if a subsequent independent quote or verified transaction on a different platform confirms the new price level.
+
+This prevents any single platform from moving the index meaningfully without independent corroboration.
+
+## Verified transactions
+
+In addition to bid-ask quotes, verified completed transactions from eligible platforms are used as calibration anchors for the sanity filter and as confirmation signals for the anti-manipulation filter. Transaction volume also factors into the eligibility criteria for listing and continued inclusion.
+
+## Index immutability
+
+Index values are immutable once computed. Once a 15-minute interval closes and the composite is calculated, that value is permanent and becomes part of the historical record used in future baseline calculations.

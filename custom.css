@@ -1,0 +1,40 @@
+:root {
+  --color-background:   #FAFAF8;
+  --color-surface:      #FFFFFF;
+  --color-border:       #E8E6E1;
+  --color-text-primary: #1A1916;
+  --color-text-muted:   #9A9690;
+  --color-accent:       #C7A969;
+  --color-positive:     #2D6A4F;
+  --color-negative:     #C1121F;
+  --radius:             8px;
+}
+
+/* Cards and surface elements */
+.dark {
+  --color-background:   #1A1916;
+  --color-surface:      #222220;
+  --color-border:       #2E2C28;
+  --color-text-primary: #F5F4F0;
+  --color-text-muted:   #6B6860;
+}
+
+/* Border radius */
+[class*="rounded"],
+.card,
+[class*="Card"],
+[class*="card"] {
+  border-radius: var(--radius) !important;
+}
+
+/* Borders use brand border color */
+[class*="border"],
+hr {
+  border-color: var(--color-border);
+}
+
+/* Muted text */
+[class*="muted"],
+[class*="subtle"] {
+  color: var(--color-text-muted);
+}

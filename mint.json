@@ -11,32 +11,62 @@
     "light": "#D4BC87",
     "dark": "#A88A4A",
     "background": {
-      "light": "#FFFFFF",
+      "light": "#FAFAF8",
       "dark": "#1A1916"
     }
   },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "css": "/custom.css",
   "topbarLinks": [
     {
       "name": "Platform",
-      "url": "https://primimarket.com"
+      "url": "https://primi.market"
     }
   ],
   "topbarCtaButton": {
     "name": "Launch App",
-    "url": "https://primimarket.com"
+    "url": "https://primi.market"
   },
   "navigation": [
     {
-      "group": "Overview",
+      "group": "About Primi",
       "pages": [
-        "introduction",
-        "methodology"
+        "about/what-is-primi",
+        "about/why-private-markets",
+        "about/how-it-works"
       ]
     },
     {
-      "group": "Guides",
+      "group": "Markets",
       "pages": [
-        "quickstart"
+        "markets/indices-baskets-companies"
+      ]
+    },
+    {
+      "group": "Methodology",
+      "pages": [
+        "methodology/overview",
+        "methodology/the-formula",
+        "methodology/data",
+        "methodology/eligibility-criteria",
+        "methodology/corporate-action-procedures"
+      ]
+    },
+    {
+      "group": "Legal and Compliance",
+      "pages": [
+        "legal/market-integrity",
+        "legal/responsible-trading",
+        "legal/what-primi-is-not"
+      ]
+    },
+    {
+      "group": "Reference",
+      "pages": [
+        "reference/glossary",
+        "reference/faq"
       ]
     }
   ],

@@ -1,0 +1,41 @@
+---
+title: How It Works
+description: The mechanics of trading on Primi and who the platform is built for.
+---
+
+## The mechanics
+
+Primi works in three layers:
+
+**1. Data aggregation.** Every 15 minutes, Primi collects live bid-ask quotes from eligible secondary market platforms — Forge, Hiive, Nasdaq Private Market, Augment, and Caplight — for each listed company. These quotes are filtered for staleness and integrity, then combined into a single composite reference price per company.
+
+**2. Index calculation.** The composite reference price feeds into each company's Primi index, which measures the *momentum* of that company's secondary market activity relative to its own 12-month history — not the absolute price level. The index updates continuously as new quotes arrive and recalibrates at defined intervals.
+
+**3. Perpetual-style contracts.** Traders take positions on each company's index. Positions remain open indefinitely until closed. Profit and loss are determined entirely by how the index moves between entry and exit. Markets are cash-settled — no shares change hands.
+
+## An example
+
+<Steps>
+  <Step title="Day 1 — Open a position">
+    You buy exposure to OpenAI's index at a level of 100, putting in $1,000. The index reflects OpenAI's current secondary market momentum relative to its own baseline.
+  </Step>
+  <Step title="Day 7 — Index rises">
+    Quote activity across Forge, Augment, and Hiive shifts upward, accelerating OpenAI's momentum beyond its historical average. The index rises to 110. Your position is now worth $1,100.
+  </Step>
+  <Step title="Day 23 — Index pulls back">
+    Momentum softens as quote activity slows. The index moves down to 98. Your position is worth $980. You continue holding.
+  </Step>
+  <Step title="Day 45 — Close the position">
+    New secondary market activity pushes momentum above the baseline again. The index rises to 150. You close your position for $1,500 — a $500 gain based solely on the change in the index.
+  </Step>
+</Steps>
+
+## The funding mechanism
+
+When the market price of a contract diverges from the underlying index reference price, a funding cost applies continuously between long and short participants. This mechanism limits persistent divergence and keeps market prices anchored to the underlying momentum signal. It creates an ongoing cost for holding a position that is significantly misaligned with the reference index.
+
+## Who Primi is for
+
+Primi is built for participants who want to express a view on private company trajectory — whether that's a thesis about AI sector acceleration, a view on a specific company's near-term momentum, or broad exposure to the private market without selecting individual names.
+
+Because Primi measures momentum relative to each company's own history, every market is genuinely two-sided. Even the most obviously successful private companies have uncertain near-term momentum relative to their own baseline. A strong quarter can still mean a falling index if the market expected a stronger one.

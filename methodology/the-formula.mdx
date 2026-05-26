@@ -1,0 +1,102 @@
+---
+title: The Formula
+description: The complete step-by-step calculation of the Primi momentum index.
+---
+
+The Primi index is calculated in seven steps. Steps 1–5 produce the core index value. Steps 6–7 apply integrity filters that protect against manipulation and data silence.
+
+---
+
+## Step 1: Capture the current reference price
+
+Every 15 minutes, collect the best bid and best ask from each eligible platform for each listed company. Apply staleness and sanity filters (see [Data](/methodology/data)). Calculate the midpoint per platform, then average across all platforms with equal weight.
+
+```
+Midpoint_platform = (Best_Bid + Best_Ask) / 2
+
+Reference_Price = Average(Midpoint_platform_1, Midpoint_platform_2, ...)
+```
+
+This produces a continuous composite price series updated throughout the day.
+
+---
+
+## Step 2: Capture the prior reference price
+
+The rate of change is measured over a **60-day window**. Both the current and prior reference prices are calculated as **7-day averages** to produce a stable signal and prevent artificial index jumps caused by a single significant quote event entering or exiting the comparison window.
+
+```
+Reference_Price_current = average of all 15-min composite midpoints over trailing 7 days
+
+Reference_Price_prior   = average of all 15-min composite midpoints from day 54 to day 60
+```
+
+The 7-day averaging on each end smooths the signal.
+
+---
+
+## Step 3: Calculate the 60-day rate of change
+
+```
+Rate_of_Change = (Reference_Price_current - Reference_Price_prior) / Reference_Price_prior
+```
+
+This reflects the percentage change in the composite midpoint over the 60-day window — measuring momentum and trajectory rather than the absolute price level.
+
+---
+
+## Step 4: Calculate excess momentum against the historical baseline
+
+The index does not measure the absolute rate of change — it measures whether the current rate of change exceeds or falls below the company's own trailing 12-month average rate of change. This is the excess momentum signal.
+
+```
+Baseline_Rate = average of all daily Rate_of_Change values over the trailing 12 months
+
+Excess_Momentum = Rate_of_Change - Baseline_Rate
+```
+
+When current momentum exceeds the baseline, the index rises. When it falls below the baseline, the index falls. When current momentum exactly matches the baseline, the index stays flat — regardless of whether the absolute price is still rising.
+
+---
+
+## Step 5: Express as an index or momentum price
+
+Two representations of the same signal are available. Both update identically each day using the same excess momentum calculation.
+
+**Index** — launches at 100 for every company on their listing date:
+```
+Index_today = Index_yesterday × (1 + Excess_Momentum / 60)
+```
+
+**Momentum price** — launches at the composite midpoint on listing date, anchored to real secondary market data:
+```
+Price_today = Price_yesterday × (1 + Excess_Momentum / 60)
+```
+
+Both mean-revert toward their starting level when momentum returns to the historical baseline. The **index** is the official reference for derivatives contract settlement. The **momentum price** is the consumer-facing representation of the same signal.
+
+---
+
+## Step 6: Apply the anti-manipulation filter
+
+Any quote movement that would shift the composite reference price by more than **10 percent** within a single 15-minute interval is flagged and held for **48 hours**. It is incorporated only if a subsequent independent quote or transaction on a different platform confirms the new price level.
+
+No single platform can move the composite meaningfully without confirmation from an independent source.
+
+---
+
+## Step 7: Apply momentum decay during market silence
+
+If all eligible platforms simultaneously show no valid quote activity for more than **30 consecutive days**, the index enters a decay state. During decay, the index drifts toward its neutral launch level at a rate of 0.1 percent per day.
+
+**Index decay:**
+```
+Index_today = Index_yesterday × (1 - 0.001)
+```
+
+**Price decay:**
+```
+Price_today = Price_yesterday × (1 - 0.001 × (Price_yesterday - Anchor_Price) / Price_yesterday)
+```
+
+Decay stops immediately when any eligible platform resumes valid quote activity. It only triggers when **all** platforms are simultaneously stale — a single platform outage does not activate decay. The index decays toward the neutral launch level, not zero, because silence is a neutral signal, not a negative one.

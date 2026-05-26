@@ -1,0 +1,55 @@
+---
+title: Glossary
+description: Definitions of key terms used across Primi documentation and the platform.
+---
+
+**Baseline Rate**
+The trailing 12-month average of a company's daily 60-day rate of change. The Primi index measures momentum relative to this baseline — not relative to an absolute level or to other companies.
+
+**Composite Reference Price**
+The equal-weighted average of per-platform midpoints for a given company, calculated every 15 minutes from eligible secondary market platforms. No single platform may represent more than 40 percent of the composite.
+
+**Decay**
+A mechanism that activates when all eligible platforms show no valid quote activity for more than 30 consecutive days. During decay, the index drifts toward its neutral launch level at 0.1 percent per day. Decay stops as soon as any eligible platform resumes valid activity.
+
+**Excess Momentum**
+The difference between a company's current 60-day rate of change and its trailing 12-month baseline rate. This is the signal that drives the Primi index up or down.
+
+**Funding Mechanism**
+A continuous cost that applies when the market price of a Primi contract diverges from the underlying reference index price. It limits persistent divergence and keeps market prices anchored to the momentum signal.
+
+**Index**
+The official Primi representation of a company's excess momentum, launching at 100 on listing date. Used as the reference for derivatives contract settlement.
+
+**Midpoint**
+`(Best Bid + Best Ask) / 2`. Calculated per platform before averaging into the composite reference price.
+
+**Momentum Price**
+The consumer-facing representation of the Primi momentum signal, launching at the composite midpoint on the listing date rather than at 100. It moves identically to the index using the same excess momentum calculation.
+
+**Observation Period**
+A pre-trading phase for companies with less than 12 months of secondary market history. The index is visible but contracts are not yet available for trading. Full trading opens once the 12-month baseline is established.
+
+**PIX**
+The Primi Index. A single composite index measuring the aggregate momentum of all listed companies, calculated as an equal-weighted average of individual company Primi indices. Updates daily. Launches at 100.
+
+**Rate of Change**
+The percentage change in a company's composite reference price over a 60-day window, using 7-day averages on each end to smooth the signal.
+
+**Reference Price (Current)**
+The 7-day average of all 15-minute composite midpoints over the trailing 7 days. Used as the recent endpoint in the 60-day rate of change calculation.
+
+**Reference Price (Prior)**
+The 7-day average of all 15-minute composite midpoints from day 54 to day 60. Used as the historical endpoint in the 60-day rate of change calculation.
+
+**Sanity Filter**
+Excludes any platform midpoint more than 30 percent away from the most recent verified transaction price on that platform. Verified transactions serve as calibration anchors.
+
+**Sector Basket**
+A tradable index calculated as the equal-weighted average of the individual company Primi indices within a defined sector. Six sector baskets are available: AI, Fintech, Space & Defense, Consumer, Data & Infrastructure, and Crypto.
+
+**Staleness Filter**
+Excludes any quote not updated within the trailing 30 days from the composite calculation.
+
+**Wind-Down Period**
+A 5-trading-day settlement window triggered when a company is delisted. No new positions may be opened. Existing positions are cash-settled at the last valid index price at the close of the final trading day.
