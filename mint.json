@@ -1,0 +1,46 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Primi",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/logo/favicon.svg",
+  "colors": {
+    "primary": "#C7A969",
+    "light": "#D4BC87",
+    "dark": "#A88A4A",
+    "background": {
+      "light": "#FFFFFF",
+      "dark": "#1A1916"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Platform",
+      "url": "https://primimarket.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Launch App",
+    "url": "https://primimarket.com"
+  },
+  "navigation": [
+    {
+      "group": "Overview",
+      "pages": [
+        "introduction",
+        "methodology"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "quickstart"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/primimarket"
+  }
+}
