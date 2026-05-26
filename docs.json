@@ -64,19 +64,19 @@
   "navbar": {
     "links": [
       {
-        "label": "Platform",
+        "label": "Website",
         "href": "https://primi.market"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Launch App",
-      "href": "https://primi.market"
+      "href": "https://primi-app.vercel.app/"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/primimarket"
+      "x": "https://x.com/"
     }
   }
 }
