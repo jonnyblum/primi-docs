@@ -7,7 +7,7 @@ description: The mechanics of trading on Primi and who the platform is built for
 
 Primi works in three layers:
 
-**1. Data aggregation.** Every 15 minutes, Primi collects live bid-ask quotes from eligible secondary market platforms — Forge, Hiive, Nasdaq Private Market, Augment, and Caplight — for each listed company. These quotes are filtered for staleness and integrity, then combined into a single composite reference price per company.
+**1. Data aggregation.** Every 15 minutes, Primi collects live bid-ask quotes from eligible secondary market platforms — Forge, Hiive, Nasdaq Private Market, and Caplight — for each listed company. These quotes are filtered for staleness and integrity, then combined into a single composite reference price per company.
 
 **2. Index calculation.** The composite reference price feeds into each company's Primi index, which measures the *momentum* of that company's secondary market activity relative to its own 12-month history — not the absolute price level. The index updates continuously as new quotes arrive and recalibrates at defined intervals.
 
@@ -31,12 +31,12 @@ Because Primi measures momentum relative to each company's own history, every ma
     You buy exposure to OpenAI's index at a level of 100, putting in $1,000. The index reflects OpenAI's current secondary market momentum relative to its own baseline.
   </Step>
   <Step title="Day 7 — Index rises">
-    Quote activity across Forge, Augment, and Hiive shifts upward, accelerating OpenAI's momentum beyond its historical average. The index rises to 110. Your position is now worth $1,100.
+    Quote activity across Forge, and Hiive shifts upward, accelerating OpenAI's momentum beyond its historical average. The index rises to 110. Your position is now worth $1,100.
   </Step>
   <Step title="Day 23 — Index pulls back">
     Momentum softens as quote activity slows. The index moves down to 98. Your position is worth $980. You continue holding.
   </Step>
   <Step title="Day 45 — Close the position">
-    New secondary market activity pushes momentum above the baseline again. The index rises to 150. You close your position for $1,500 — a $500 gain based solely on the change in the index.
+    New secondary market activity pushes momentum above the baseline again. The index rises to 150. You close your position for $1,500 — based solely on the index change.
   </Step>
 </Steps>
