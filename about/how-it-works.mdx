@@ -13,6 +13,17 @@ Primi works in three layers:
 
 **3. Perpetual-style contracts.** Traders take positions on each company's index. Positions remain open indefinitely until closed. Profit and loss are determined entirely by how the index moves between entry and exit. Markets are cash-settled — no shares change hands.
 
+
+## The funding mechanism
+
+When the market price of a contract diverges from the underlying index reference price, a funding cost applies continuously between long and short participants. This mechanism limits persistent divergence and keeps market prices anchored to the underlying momentum signal. It creates an ongoing cost for holding a position that is significantly misaligned with the reference index.
+
+## Who is Primi for?
+
+Primi is built for participants who want to express a view on private company trajectory — whether that's a thesis about AI sector acceleration, a view on a specific company's near-term momentum, or broad exposure to the private market without selecting individual names.
+
+Because Primi measures momentum relative to each company's own history, every market is genuinely two-sided. Even the most obviously successful private companies have uncertain near-term momentum relative to their own baseline. A strong quarter can still mean a falling index if the market expected a stronger one.
+
 ## An example
 
 <Steps>
@@ -29,13 +40,3 @@ Primi works in three layers:
     New secondary market activity pushes momentum above the baseline again. The index rises to 150. You close your position for $1,500 — a $500 gain based solely on the change in the index.
   </Step>
 </Steps>
-
-## The funding mechanism
-
-When the market price of a contract diverges from the underlying index reference price, a funding cost applies continuously between long and short participants. This mechanism limits persistent divergence and keeps market prices anchored to the underlying momentum signal. It creates an ongoing cost for holding a position that is significantly misaligned with the reference index.
-
-## Who Primi is for
-
-Primi is built for participants who want to express a view on private company trajectory — whether that's a thesis about AI sector acceleration, a view on a specific company's near-term momentum, or broad exposure to the private market without selecting individual names.
-
-Because Primi measures momentum relative to each company's own history, every market is genuinely two-sided. Even the most obviously successful private companies have uncertain near-term momentum relative to their own baseline. A strong quarter can still mean a falling index if the market expected a stronger one.
